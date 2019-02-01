@@ -1,0 +1,144 @@
+<div class="register">
+  
+  <a class="tab-item" [ngClass]="{'active':activeTab === 'userDetails'}" (click)="onTabChange('userDetails')"> </a>
+  <a class="tab-item" [ngClass]="{'active':activeTab === 'medicalHistory'}" (click)="onTabChange('medicalHistory')"></a>
+  <a class="tab-item" [ngClass]="{'active':activeTab === 'contactInfo'}" (click)="onTabChange('contactInfo')"></a>
+
+  <div *ngIf="activeTab === 'userDetails'">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+          <div text-center>
+            <h4>Personal Details</h4>
+          </div>
+
+          <div padding>
+
+            <ion-item>
+              <ion-input type="text" placeholder="First Name *" [(ngModel)]="firstName"></ion-input>
+            </ion-item>
+            {{response}}
+
+            <ion-item>
+              <ion-input type="text" placeholder="Last Name *" [(ngModel)]="lastName"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-input type="text" placeholder="User Name *" [(ngModel)]="userName"></ion-input>
+            </ion-item>
+            {{response}}
+
+            <ion-item>
+              <ion-input type="email" placeholder="email Id *" [(ngModel)]="emailadd"></ion-input>
+            </ion-item>
+            {{response}}
+            <ion-item>
+              <ion-input type="text" placeholder="Date of Birth (dd/mm/yyyy) *" [(ngModel)]="dateOfBirth"></ion-input>
+            </ion-item>
+            {{response}}
+            <ion-item>
+              <ion-input type="number" placeholder="Mobile Number *" maxlength="10" [(ngModel)]="mobileNumber"></ion-input>
+            </ion-item>
+            {{response}}
+            <ion-item>
+              <ion-input type="number" placeholder="Alternate Mobile Number" maxlength="10" [(ngModel)]="altNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Address *" [(ngModel)]="address"></ion-input>
+            </ion-item>
+            {{response}}
+            <ion-item>
+              <ion-input type="password" placeholder="Password *" [(ngModel)]="password"></ion-input>
+            </ion-item>
+            {{response}}<p> Password minimum length is 6</p><p style="color:red;">* Fields are required</p>
+            
+            <div padding>
+              <button ion-button block class="submit-btn" (click)="onTabChange('userDetails','medicalHistory')">Next</button>
+            </div>
+          </div>
+          <div padding>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
+<!-- ----------------------------------------------------------------------- -->
+<div *ngIf="activeTab === 'medicalHistory'">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+        <div text-center>
+          <h4>Medical Details and History</h4>
+        </div>
+
+        <div padding>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Blood Group *" [(ngModel)]="bloodgroup"></ion-input>
+          </ion-item>
+          {{response}}
+          <ion-item>
+            <ion-input type="text" placeholder="Alergies" [(ngModel)]="allergies"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Prior Surgeries" [(ngModel)]="priorsurgeries"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Any Family Medical History" [(ngModel)]="familyhistory"></ion-input>
+          </ion-item>
+          <p style="color:red;">* Fields are required</p>
+          <div padding>
+            <button ion-button block class="submit-btn" (click)="onTabChange('medicalHistory','contactInfo')">Next</button>
+          </div>
+         
+        </div>
+        <div padding>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<!-- ----------------------------------------------------- -->
+<div *ngIf="activeTab === 'contactInfo'">
+
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>Emergency Contact Details</h4>
+        </div>
+
+        <div padding>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Emergency Contact Number 1 *" [(ngModel)]="econtacts1"></ion-input>
+          </ion-item>
+          {{response}}
+          <ion-item>
+            <ion-input type="number" placeholder="Emergency Contact Number 2" [(ngModel)]="econtacts2"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Emergency Contact Number 3" [(ngModel)]="econtacts3"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Doctor's Contact Number *" [(ngModel)]="dcontacts"></ion-input>
+          </ion-item>
+          {{response}}<p style="color:red;">* Fields are required</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div padding>
+    <button ion-button block class="submit-btn" (click)="register('contactInfo')">Register</button>
+  </div>
+  
+</div>
+
