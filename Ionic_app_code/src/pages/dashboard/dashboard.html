@@ -1,0 +1,41 @@
+<ion-header>
+
+  <!-- <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        Dashboard
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="scan()">
+          Scan
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+        <h2>Your Health Monitoring Device </h2>
+        <h2>{{ device.name || 'Unnamed' }}</h2>
+        <!-- <p>{{ device.id }}</p> -->
+			<!-- <p>RSSI: {{ device.rssi }}</p> -->
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-content>
